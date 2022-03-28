@@ -1,0 +1,77 @@
+
+
+{% extends 'headerfooter.html' %}
+
+{% block content %}
+
+
+  <!-- ***** Main Banner Area Start ***** -->
+  <section class="section main-banner" id="top" data-section="section1">
+      <video autoplay muted loop id="bg-video">
+          <source src="/static/assets/images/course-video.mp4" type="video/mp4" />
+      </video>
+
+      <div class="video-overlay header-text">
+            <div class="caption">
+                <h3 style="color: yellow;">PRODUCT </h3><h3  style="color: white;">REGISTRATION</h3>
+              </div>
+          </div>
+      </div>
+  </section>
+  <!-- ***** Main Banner Area End ***** -->
+  <section class="section coming-soon" data-section="section3">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 col-xs-12">
+          <div class="continer centerIt">
+                <div class="top-content">
+                  <h6>Registerd <em>get immediate</em> access to cameras</h6>
+                </div>
+                <form id="registration" action="/addproduct/" method="POST" enctype="multipart/form-data">
+                  {% csrf_token %}
+                  <div class="row">
+                    <div class="col-md-12">
+                      <fieldset>
+                        <input name="name" type="text" class="form-control" id="name" placeholder="Product Name"  required="">
+                      </fieldset>
+                    </div>
+                    <div class="col-md-12">
+                        <fieldset>
+                          <input name="price" type="text" class="form-control" id="price" placeholder="Enter the price"  required="">
+                        </fieldset>
+                      </div>
+                      <div class="col-md-12">
+                        <fieldset>
+                          <input name="description" type="text" class="form-control" id="description" placeholder=" Describe your products"  required="">
+                        </fieldset>
+                      </div>
+                      <div class="col-md-12">
+                        <fieldset>
+                          <input name="brand" type="text" class="form-control" id="brand" placeholder=" Please provide the brand "  required="">
+                        </fieldset>
+                      </div>
+                      <div class="col-md-12">
+                        <fieldset>
+                          <input name="condition" type="text" class="form-control" id="condition" placeholder=" Please specify the condition "  required="">
+                        </fieldset>
+                      </div>
+                      <div class="col-md-12">
+                        <fieldset>
+                            <input type="file" name="image" id="image" required>
+                        </fieldset>
+                      </div>
+                    <div class="col-md-12">
+                      <fieldset>
+                        <button type="submit" id="submit" class="button">Submit</button>{{aa}}
+                      </fieldset>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+          </div>
+        </div>
+  </section>     
+
+  {% endblock %}

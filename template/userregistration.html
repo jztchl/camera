@@ -1,0 +1,78 @@
+
+
+{% extends 'headerfooter.html' %}
+
+{% block content %}
+
+  <!-- ***** Main Banner Area Start ***** -->
+  <section class="section main-banner" id="top" data-section="section1">
+      <video autoplay muted loop id="bg-video">
+          <source src="/static/assets/images/course-video.mp4" type="video/mp4" />
+      </video>
+
+      <div class="video-overlay header-text">
+            <div class="caption">
+                <h3 style="color: yellow;">USER </h3><h3  style="color: white;">REGISTRATION</h3>
+              </div>
+          </div>
+      </div>
+  </section>
+  <!-- ***** Main Banner Area End ***** -->
+  <section class="section coming-soon" data-section="section3">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 col-xs-12">
+          <div class="continer centerIt">
+                <div class="top-content">
+                  <h6>Registerd <em>get immediate</em> access to cameras</h6>
+                </div>
+                <form id="registration" action="/userregistration/" method="POST" enctype="multipart/form-data">
+                  {% csrf_token %}
+                  <div class="row">
+                    <div class="col-md-12">
+                      <fieldset>
+                        <input name="name" type="text" class="form-control" id="name" placeholder="Your Name"  required="">
+                      </fieldset>
+                    </div>
+                    <div class="col-md-12">
+                      <fieldset>
+                        <input name="email" type="text" class="form-control" id="email" placeholder="Your Email" onchange="g()" required="">
+                        <p id="ser" style="display:none">already used email</p>
+                      </fieldset>
+                    </div>
+                    <div class="col-md-12">
+                      <fieldset>
+                        <input name="phone-number" type="text" class="form-control" id="phone-number" placeholder="Your Phone Number" required="">
+                      </fieldset>
+                    </div>
+                    <div class="col-md-12">
+                        <fieldset>
+                          <input name="username" type="text" class="form-control" id="username"  onchange="g()" placeholder="Enter a suitable username" required="">
+                          <p id="res" style="display:none">already used username</p>
+                        </fieldset>
+                      </div>
+                      <div class="col-md-12">
+                        <fieldset>
+                          <input name="password" type="password" class="form-control" id="password" placeholder="Enter a password" required="">
+                        </fieldset>
+                      </div>
+                      <div class="col-md-12">
+                        <fieldset>
+                            <input type="file" name="img" id="img" >
+                        </fieldset>
+                      </div>
+                    <div class="col-md-12">
+                      <fieldset>
+                        <button type="submit" id="submit" disabled class="button">Submit</button>{{ms}}
+                      </fieldset>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+          </div>
+        </div>
+  </section>     
+
+  {% endblock %}

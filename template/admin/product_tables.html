@@ -1,0 +1,57 @@
+{% extends 'admin/headside.html' %}
+
+{% block content %}
+
+<!--main content start-->
+<section id="main-content">
+	<section class="wrapper">
+		<div class="table-agile-info">
+ <div class="panel panel-default">
+    <div class="panel-heading">
+     Product table
+    </div>
+    <div>
+      <table class="table" ui-jq="footable" ui-options='{
+        "paging": {
+          "enabled": true
+        },
+        "filtering": {
+          "enabled": true
+        },
+        "sorting": {
+          "enabled": true
+        }}'>
+        <thead>
+          <tr>
+            <th data-breakpoints="xs">Serial No.</th>
+            <th>Product Name</th>
+            <th>Product Price</th>
+            <th data-breakpoints="xs">Product Description</th>
+           
+            <th data-breakpoints="xs sm md" data-title="DOB">Seller ID</th>
+            <th data-breakpoints="xs"> Seller Name</th>
+            <th data-breakpoints="xs"> Product Image</th>
+            <th data-breakpoints="xs"> Brand</th>
+            <th data-breakpoints="xs"> Condition</th>
+          </tr>
+        </thead>
+        <tbody>{% for x in ab %}
+          <tr data-expanded="true">
+            <td>{{forloop.counter}}</td>  
+            <td>{{x.productname}}</td>
+            <td>{{x.productprice}}</td>
+            <td>{{x.productdes}}</td>
+            <td>{{x.sellerid}}</td>
+            <td>{{x.sellerid.vname}}</td>
+            <td><img src="{{x.pimage.url}}" alt="" width="10%" srcset=""></td>
+            <td>{{x.brand}}</td>
+            <td>{{x.condition}}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+</section>
+{% endblock %}

@@ -1,0 +1,138 @@
+
+
+{% extends 'headerfooter.html' %}
+
+{% block content %}
+
+  <!-- ***** Main Banner Area Start ***** -->
+  <section class="section main-banner" id="top" data-section="section1">
+      <video autoplay muted loop id="bg-video">
+          <source src="/static/assets/images/course-video.mp4" type="video/mp4" />
+      </video>
+
+      <div class="video-overlay header-text">
+          <div class="caption">
+              <h6>Camera Rental Service</h6>
+              <h2><em>you</em> choose</h2>
+              <div class="main-button">
+                  <div class="scroll-to-section"><a href="#section2">Discover more</a></div>
+              <div style="color: chartreuse;">{{success}}</div>
+              </div>
+          </div>
+      </div>
+  </section>
+  <!-- ***** Main Banner Area End ***** -->
+
+
+  <section class="features">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4 col-12">
+          <div class="features-post">
+            <div class="features-content">
+              <div class="content-show">
+                <h4><i class="fa fa-pencil"></i>All Companies</h4>
+              </div>
+              <div class="content-hide">
+                <p>we provide all the brand camera that are avialble to our dealer</p>
+                <p class="hidden-sm"></p>
+                <div class="scroll-to-section"><a href="#section2">More Info.</a></div>
+            </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-12">
+          <div class="features-post second-features">
+            <div class="features-content">
+              <div class="content-show">
+                <h4><i class="fa fa-graduation-cap"></i>Background Check</h4> 
+              </div>
+              <div class="content-hide">
+                <p>All customers and dealers background is verifed</p>
+                <p class="hidden-sm">Curabitur id eros vehicula, tincidunt libero eu, lobortis mi. In mollis eros a posuere imperdiet.</p>
+                <div class="scroll-to-section"><a href="#section3">Details</a></div>
+            </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-12">
+          <div class="features-post third-features">
+            <div class="features-content">
+              <div class="content-show">
+                <h4><i class="fa fa-book"></i>Reliable</h4>
+              </div>
+              <div class="content-hide">
+                <p>Curabitur id eros vehicula, tincidunt libero eu, lobortis mi. In mollis eros a posuere imperdiet. Donec maximus elementum ex. Cras convallis ex rhoncus, laoreet libero eu, vehicula libero.</p>
+                <p class="hidden-sm">Curabitur id eros vehicula, tincidunt libero eu, lobortis mi. In mollis eros a posuere imperdiet.</p>
+                <div class="scroll-to-section"><a href="#section4">Read More</a></div>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section why-us" data-section="section2">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="section-heading">
+            <h2>Why choose Camera Rental</h2>
+          </div>
+        </div>
+        <div class="col-md-12">
+          <div id='tabs'>
+            <ul>
+              <li><a href='#tabs-1'>Best Service</a></li>
+              <li><a href='#tabs-2'>Legit Dealers</a></li>
+              <li><a href='#tabs-3'>Quality Meeting</a></li>
+            </ul>
+            <section class='tabs-content'>
+              <article id='tabs-1'>
+                <div class="row">
+                  <div class="col-md-6">
+                    <img src="/static/assets/images/choose-us-image-01.png" alt="">
+                  </div>
+                  <div class="col-md-6">
+                    <h4>Best Service</h4>
+                    <p>We Provide the best service on camera rental</p>
+                  </div>
+                </div>
+              </article>
+              <article id='tabs-2'>
+                <div class="row">
+                  <div class="col-md-6">
+                    <img src="/static/assets/images/choose-us-image-02.png" alt="">
+                  </div>
+                  <div class="col-md-6">
+                    <h4>Legit Dealers</h4>
+                    <p>All our Dealers who ae renting their camera</p> 
+                    <p>are totally Legit and background checked</p>
+                  </div>
+                </div>
+              </article>
+              <article id='tabs-3'>
+                <div class="row">
+                  <div class="col-md-6">
+                    <img src="/static/assets/images/choose-us-image-03.png" alt="">
+                  </div>
+                  <div class="col-md-6">
+                    <h4>Quality Meeting</h4>
+                    <p> Camera to be rented is picked up aand delivered accoding to the comfort of user and dealer</p>
+                  </div>
+                </div>
+              </article>
+            </section>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  
+
+  
+
+  
+  {% endblock %}

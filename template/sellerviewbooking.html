@@ -1,0 +1,53 @@
+
+
+{% extends 'headerfooter.html' %}
+
+{% block content %}
+
+<!-- ***** Main Banner Area Start ***** -->
+<section class="section main-banner" id="top" data-section="section1">
+  <video autoplay muted loop id="bg-video">
+      <source src="/static/assets/images/course-video.mp4" type="video/mp4" />
+  </video>
+
+  <div class="video-overlay header-text">
+        <div class="caption">
+            <h3 style="color: yellow;">VIEW -Seller </h3><h3  style="color: white;">Booking</h3>
+          </div>
+      </div>
+  </div>
+</section>
+<!-- ***** Main Banner Area End ***** -->
+<section class="section coming-soon" data-section="section3">
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 col-xs-12">
+      <div class="continer centerIt">
+            <div class="top-content">
+              <h6>Your <em>Products </em>Are Listed Below</h6>
+            </div>
+            <table class=" table" width="200px">
+              <div class="col-md-12">
+                <fieldset>
+              <tr class="table-danger"><th>Product Name</th><th>Product Price</th><th>Product description</th><th>Product Image</th><th>From </th><th>TO</th><th>Name of booked Person</th><th>Phone No: </th><th>Status</th><th>Final Amount</th></tr>
+        
+            </div>
+             {% for x in ab %}
+             
+             <div class="col-md-12">
+               <fieldset> 
+               <tr class="table-info"><td>{{x.productid.productname}}</td><td>{{x.productid.productprice}}</td><th>{{x.productid.productdes}}</th><td><img src="{{x.productid.pimage.url}}" alt="image" width="90px" ></td><td>{{x.bookingdatefrom}}</td><td>{{x.bookingdateto}}</td>
+            <td>{{x.bookeduser.name}}</td><td>{{x.bookeduser.phone}}</td><td>{{x.status}}</td><td>{{x.amount}}</td></tr>
+             
+              </fieldset> </div>
+              {% endfor %} 
+              </table>
+
+          </div>
+        </div>
+      </div>
+      </div>
+    </div>
+</section>     
+
+  {% endblock %}

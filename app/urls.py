@@ -1,0 +1,46 @@
+from django.urls import path
+from app import views
+
+urlpatterns = [
+  
+path('',views.index),
+path('userregistration/',views.userregistration),
+path('sellerregistration/',views.sellerregistration),
+path('sellerlogin/',views.sellerlogin),
+path('userlogin/',views.userlogin),
+path('sellerlogout/',views.sellerlogout),
+path('userlogout/',views.userlogout),
+path('sellerprofile/',views.sellerprofile),
+path('userprofile/',views.userprofile),
+path('addproduct/',views.addproduct),
+path('viewproduct/',views.viewproduct),
+path('updateproduct/',views.updateproduct),
+path('deleteproduct/',views.deleteproduct),
+path('userviewproduct/',views.userviewproduct),
+path('userbooking/',views.userbooking),
+path('userviewbooking/',views.userviewbooking),
+path('sellerviewbooking/',views.sellerviewbooking),
+path('userbookingcheck/',views.userbookingcheck),
+path('cancelb/',views.cancelb),
+path('admin_p/',views.admin_p),
+path('user_tables/',views.user_tables),
+path('seller_tables/',views.seller_tables),
+path('product_tables/',views.product_tables),
+path('booking_tables/',views.booking_tables),
+path('admin_login/',views.admin_login),
+path('admin_logout/',views.admin_logout),
+path('seller_approve/',views.seller_approve),
+path('seller_delete/',views.seller_delete),
+path('grids/',views.grids),
+path('userchangepassword/',views.userchangepassword),
+path('sellerchangepassword/',views.sellerchangepassword),
+path('userforgotpassword/',views.userforgotpassword),
+path('userchangepassword2/',views.userchangepassword2),
+path('sellerforgotpassword/',views.sellerforgotpassword),
+path('sellerchangepassword2/',views.sellerchangepassword2),
+path('userverification/',views.userverification),
+path('sellerverification/',views.sellerverification),
+path('contact/',views.contact),
+
+
+]

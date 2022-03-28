@@ -1,0 +1,62 @@
+
+
+{% extends 'headerfooter.html' %}
+
+{% block content %}
+
+
+  <!-- ***** Main Banner Area Start ***** -->
+  <section class="section main-banner coming-soon" id="top" data-section="section1">
+      <video autoplay muted loop id="bg-video">
+          <source src="/static/assets/images/course-video.mp4" type="video/mp4" />
+      </video>
+
+      <div class="video-overlay header-text">
+            <div class="caption">
+              <div class="container">
+              <div class="row">
+                <div class="col-md-5 col-xs-12" >
+                  <div class="continer centerIt">
+                        <div class="top-content">
+                          <h6>login <em>here</em> !!</h6>
+                        </div>
+                        <form id="registration" action="/userlogin/" method="POST" enctype="multipart/form-data">
+                          {% csrf_token %}
+                          <div class="row">
+                            <div class="col-md-12">
+                                <fieldset>
+                                  <input name="username" type="text" class="form-control" id="username" placeholder="Enter username" required="">
+                                </fieldset>
+                              </div>
+                              <div class="col-md-12">
+                                <fieldset>
+                                  <input name="password" type="password" class="form-control" id="password" placeholder="Enter password" required="">
+                                </fieldset>
+                              </div>
+                            <div class="col-md-12">
+                              <fieldset>
+                                <button type="submit" id="submit"  class="button">Submit</button><span style="color: red;">{{errr}}</span>
+                              </fieldset>
+                              <fieldset class="mt-5" style="color:deeppink;">
+                                <a href="/userforgotpassword/">forgot password </a>
+                              </fieldset>
+                            </div>
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                  </div>
+               </div>
+          </div>
+      </div>
+    </div>
+  </section>
+  <!-- ***** Main Banner Area End ***** -->
+  <section class="section coming-soon" data-section="section3">
+
+      
+        </div>
+  </section>     
+
+  {% endblock %}

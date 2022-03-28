@@ -1,0 +1,54 @@
+{% extends 'admin/headside.html' %}
+
+{% block content %}
+
+<!--main content start-->
+<section id="main-content">
+	<section class="wrapper">
+		<div class="table-agile-info">
+ <div class="panel panel-default">
+    <div class="panel-heading">
+  Booking table
+    </div>
+    <div>
+      <table class="table" ui-jq="footable" ui-options='{
+        "paging": {
+          "enabled": true
+        },
+        "filtering": {
+          "enabled": true
+        },
+        "sorting": {
+          "enabled": true
+        }}'>
+        <thead>
+          <tr>
+            <th data-breakpoints="xs">Serial NO.</th>
+            <th>Product Name</th>
+            <th  data-breakpoints="xs">Booked User</th>
+            <th>Seller</th>
+            <th>From</th>
+            <th>To</th>
+            <th>Status</th>
+            <th>Final Amount</th>
+          </tr>
+        </thead>
+        <tbody>{% for x in ab %}
+          <tr data-expanded="true">
+            <td>{{forloop.counter}}</td>  
+            <td>{{x.productid.productname}}</td>
+            <td>{{x.bookeduser.name}}</td>
+            <td>{{x.sellerid.vname}}</td>
+            <td>{{x.bookingdatefrom}}</td> 
+            <td>{{x.bookingdateto}}</td> 
+            <td>{{x.status}}</td> 
+            <td>{{x.amount}}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+</section>
+{% endblock %}

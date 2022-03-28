@@ -1,0 +1,196 @@
+
+
+{% extends 'headerfooter.html' %}
+
+{% block content %}
+<link href="/static/assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/assets/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/static/assets/css/prettyPhoto.css" rel="stylesheet">
+    <link href="/static/assets/css/price-range.css" rel="stylesheet">
+    <link href="/static/assets/css/animate.css" rel="stylesheet">
+	<link href="/static/assets/css/main.css" rel="stylesheet">
+	<link href="/static/assets/css/responsive.css" rel="stylesheet">
+  <link rel="shortcut icon" href="/static/assets/images/ico/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/static/assets/images/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/static/assets/images/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/static/assets/images/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="/static/assets/images/ico/apple-touch-icon-57-precomposed.png">
+    <script src="/static/assets/js/jquery.js"></script>
+    <script src="/static/assets/js/price-range.js"></script>
+      <script src="/static/assets/js/jquery.scrollUp.min.js"></script>
+    <script src="/static/assets/js/bootstrap.min.js"></script>
+      <script src="/static/assets/js/jquery.prettyPhoto.js"></script>
+      <script src="/static/assets/js/main.js"></script>
+	  <script>
+		function bookingprice()
+		{ var fdate= document.getElementById('fromdate').value;
+		  var tdate=document.getElementById('todate').value;
+		  var pprice=document.getElementById('pprice').value;
+
+		  fdate= new Date(fdate);
+		  tdate = new Date(tdate);
+		  cdate= (tdate.getDate()-fdate.getDate())+1;
+		  finalprice=cdate*pprice
+		  document.getElementById('final_price').value=finalprice;
+		  document.getElementById('final_price').value(finalprice);
+
+		}
+
+       function datec()
+		{
+		var Gdate = document.getElementById("fromdate").value;
+		var CurrentDate = new Date();
+		Gdate = new Date(Gdate);
+		if(Gdate < CurrentDate)
+		alert('please provide upcoming date'); 
+		$('submit').attr('disabled');     
+		}
+	  function datecheck()
+		{
+		  alert("cheking if date available or not!");
+		  var fromdate=document.getElementById('fromdate').value;
+		  var tdate=document.getElementById('todate').value;
+		  var vv=document.getElementById('vv').value;
+		  $.ajax({
+		
+			url:'/userbookingcheck/',
+			data:
+			{
+			  'a':fromdate,
+			  'b':tdate,
+			  'c':vv
+			},
+			datatype: 'json',
+			success: function(jj)
+			{ if(jj.cc=="t")
+			 { 
+			
+			  document.getElementById('avail2').style.display="block";
+			  document.getElementById('avail').style.display="none";
+			  document.getElementById('submit').setAttribute('disabled')
+		
+			
+
+		     }
+			  else
+			 { 
+				 document.getElementById('avail').style.display="block";
+				 document.getElementById('avail2').style.display="none";
+			  document.getElementById('submit').removeAttribute('disabled');
+			  bookingprice();
+			}
+			}
+		   
+			
+		
+		
+			});
+		}	
+		
+		
+
+			</script>
+<body>
+	<section id="advertisement">
+		<div class="container">
+      <img src="/static/assets/images/shop/advertisement.jpg" alt="" />
+			
+		</div>
+	</section>
+	
+
+	<section>
+		
+			<div class="row">
+				{% for x in pros %}
+				<div class="col-sm-12 padding-right">
+					<div class="product-details"><!--product-details-->
+						<div class="col-sm-5">
+							<div class="view-product">
+								<img src="{{x.pimage.url}}" alt="" />
+								<h3>ZOOM</h3>
+							</div>
+							<div id="similar-product" class="carousel slide" data-ride="carousel">
+								
+								  <!-- Wrapper for slides -->
+								    <div class="carousel-inner">
+										<div class="item active">
+										  <a href=""><img src="images/product-details/similar1.jpg" alt=""></a>
+										  <a href=""><img src="images/product-details/similar2.jpg" alt=""></a>
+										  <a href=""><img src="images/product-details/similar3.jpg" alt=""></a>
+										</div>
+										<div class="item">
+										  <a href=""><img src="images/product-details/similar1.jpg" alt=""></a>
+										  <a href=""><img src="images/product-details/similar2.jpg" alt=""></a>
+										  <a href=""><img src="images/product-details/similar3.jpg" alt=""></a>
+										</div>
+										<div class="item">
+										  <a href=""><img src="images/product-details/similar1.jpg" alt=""></a>
+										  <a href=""><img src="images/product-details/similar2.jpg" alt=""></a>
+										  <a href=""><img src="images/product-details/similar3.jpg" alt=""></a>
+										</div>
+										
+									</div>
+
+								  <!-- Controls -->
+								  <a class="left item-control" href="#similar-product" data-slide="prev">
+									<i class="fa fa-angle-left"></i>
+								  </a>
+								  <a class="right item-control" href="#similar-product" data-slide="next">
+									<i class="fa fa-angle-right"></i>
+								  </a>
+							</div>
+
+						</div>
+						<div class="col-sm-7">
+							<div class="product-information"><!--/product-information-->
+								<img src="images/product-details/new.jpg" class="newarrival" alt="" />
+								<h2>{{x.productname}}</h2><br><br>
+								<p>Web ID: 1089772</p><form action="/userbooking/?pro={{x.id}}" method="POST">
+                  {% csrf_token %}
+								<img src="images/product-details/rating.png" alt="" />
+								<span>
+									<span>Rs.{{x.productprice}}</span>
+									<input type="hidden" name="pprice" id="pprice" value="{{x.productprice}}">
+									<label for="fromdate">From</label><input type="hidden" id="vv" name="vv" value="{{x.id}}">
+									<input type="date" name="fromdate" id="fromdate" placeholder="Enter Starting Dating" onchange="datec()"  required />&nbsp;
+									<label for="todate">To</label>
+									<input type="date" name="todate" id="todate" placeholder=" Ending Date" onchange="datecheck()" required/>
+									<button  type="submit" id="submit"  onclick="aa()" class="btn btn-fefault cart" disabled>
+										<p id="avail" style="display:none">available</p>
+										<p id="avail2" style="display:none">not available</p>
+										<i class="fa fa-shopping-cart"></i>
+										Book
+									</button>
+								</span><br>
+								<input type="text" name="final_price" id="final_price" placeholder="Booking amount" ></div></form>
+								<p><b>Availability:</b> In Stock</p>
+								<p><b>Condition:</b>{{x.condition}}</p>
+								<p><b>Brand:</b>{{x.brand}}</p>
+								<a href=""><img src="images/product-details/share.png" class="share img-responsive"  alt="" /></a>
+							</div><!--/product-information-->
+						</div>
+					</div><!--/product-details-->
+					
+					<div class="category-tab shop-details-tab"><!--category-tab-->
+						<div class="col-sm-12">
+							<ul class="nav nav-tabs">
+								<li><a href="#details" data-toggle="tab">Details</a></li>
+							</ul>
+						</div>
+						<div class="tab-content">
+							<div class="tab-pane fade active in" id="details" >
+								<div class="col-sm-12">
+									<p>{{x.productdes}}</p>
+								
+								</div</div>
+						</div>
+					</div><!--/category-tab-->
+					{% endfor %}
+					
+				</div>
+			</div>
+		</div>
+	</section>
+</body>
+{% endblock %}

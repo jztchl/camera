@@ -1,0 +1,55 @@
+{% extends 'admin/headside.html' %}
+
+{% block content %}
+
+<!--main content start-->
+<section id="main-content">
+	<section class="wrapper">
+		<div class="table-agile-info">
+ <div class="panel panel-default">
+    <div class="panel-heading">
+     Seller table
+    </div>
+    <div>
+      <table class="table" ui-jq="footable" ui-options='{
+        "paging": {
+          "enabled": true
+        },
+        "filtering": {
+          "enabled": true
+        },
+        "sorting": {
+          "enabled": true
+        }}'>
+        <thead>
+          <tr>
+            <th data-breakpoints="xs">Serial NO.</th>
+            <th>Name</th>
+            <th>Username</th>
+            <th data-breakpoints="xs">Email</th>
+           
+            <th data-breakpoints="xs sm md" data-title="DOB">Phone</th>
+            <th data-breakpoints="xs">Approval Status</th>
+            <th data-breakpoints="xs">Image</th>
+            <th data-breakpoints="xs">Manage</th>
+          </tr>
+        </thead>
+        <tbody>{% for x in ab %}
+          <tr data-expanded="true">
+            <td>{{forloop.counter}}</td>  
+            <td>{{x.vname}}</td>
+            <td>{{x.username}}</td>
+            <td>{{x.email}}</td>
+            <td>{{x.phone}}</td>
+            <td>{{x.authN}}</td>
+            <td><img src="{{x.image.url}}" alt="" width="10%" srcset=""></td>
+       <td>{% if (x.authN == 'Approved') %}<a href="/seller_approve/?sid={{x.id}}"><span style="color:green">Approve</span></a>{% endif %}<br><a href="/seller_delete/?sid={{x.id}}" ><span style="color: red;"> Delete</span></a></td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+</section>
+{% endblock %}

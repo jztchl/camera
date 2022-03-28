@@ -1,0 +1,52 @@
+{% extends 'admin/headside.html' %}
+
+{% block content %}
+
+<!--main content start-->
+<section id="main-content">
+	<section class="wrapper">
+		<div class="table-agile-info">
+ <div class="panel panel-default">
+    <div class="panel-heading">
+     User table
+    </div>
+    <div>
+      <table class="table" ui-jq="footable" ui-options='{
+        "paging": {
+          "enabled": true
+        },
+        "filtering": {
+          "enabled": true
+        },
+        "sorting": {
+          "enabled": true
+        }}'>
+        <thead>
+          <tr>
+            <th>Serial No.</th>
+            <th>Name</th>
+            <th>Username</th>
+            <th >Email</th>
+           
+            <th >Phone</th>
+            <th >Image</th>
+          </tr>
+        </thead>
+        <tbody>{% for x in ab %}
+          <tr data-expanded="true">
+            <td>{{forloop.counter}}</td>  
+            <td>{{x.name}}</td>
+            <td>{{x.username}}</td>
+            <td>{{x.email}}</td>
+            <td>{{x.phone}}</td>
+            
+            <td><img src="{{x.image.url}}" alt="" width="10%" srcset=""></td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+</section>
+{% endblock %}

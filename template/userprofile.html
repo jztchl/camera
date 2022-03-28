@@ -1,0 +1,81 @@
+
+
+{% extends 'headerfooter.html' %}
+
+{% block content %}
+
+
+  <!-- ***** Main Banner Area Start ***** -->
+  <section class="section main-banner coming-soon" id="top" data-section="section1">
+      <video autoplay muted loop id="bg-video">
+          <source src="/static/assets/images/course-video.mp4" type="video/mp4" />
+      </video>
+  
+      <div class="video-overlay header-text">
+            <div class="caption">
+              <div class="container">
+              <div class="row">
+                <div class="row">
+                    <div class="col-md-6 ">
+                       {% for x in use %}
+                        <div class="d-flex flex-column align-items-center text-center p-5 py-8"><img class="rounded-circle mt-7" width="250px" src="{{x.image.url}}"><span style="color: cornsilk;" >{{x.name}}</span><span> </span></div>
+                    </div>
+                <div class="col-md-6 col-xs-12" >
+                  <div class="continer centerIt">
+        <form id="registration" action="/userprofile/" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="row">
+            {{msg}}
+              <div class="col-md-12">
+                <fieldset>
+                  <input name="name" type="text" class="form-control" id="name" placeholder="Your Name"  required="" value="{{x.name}}">
+                </fieldset>
+              </div>
+              <div class="col-md-12">
+                <fieldset>
+                  <input name="email" type="text" class="form-control" id="email" placeholder="Your Email" onchange="g()" required="" value="{{x.email}}">
+                  <p id="ser" style="display:none">already used email</p>
+                </fieldset>
+              </div>
+              <div class="col-md-12">
+                <fieldset>
+                  <input name="phone-number" type="text" class="form-control" id="phone-number" placeholder="Your Phone Number" required="" value="{{x.phone}}">
+                </fieldset>
+              </div>
+              <div class="col-md-12">
+                  <fieldset>
+                    <input name="username" type="text" class="form-control" id="username"  onchange="g()" placeholder="Enter a suitable username" required="" value="{{x.username}}">
+                    <p id="res" style="display:none">already used username</p>
+                  </fieldset>
+                </div>
+                <div class="col-md-12">
+                  <fieldset><label for="chh">update to new image check the box below </label>
+                    <input type="hidden" name="chh" id="cj" class="chk" value="no">
+                   <input type="checkbox" name="chh" id="cj" class="chk" onchange="valueChanged()" value="yes">
+                   <div class="upimg" style="display:none;">
+                <input type="file" disabled name="image" id="image" required>
+                  </fieldset>
+                </div>
+              <div class="col-md-12">
+                <fieldset>
+                  <button type="submit" id="submit"  class="button">Submit</button>{{ms}}
+                </fieldset>
+                </div>
+                <div class="col-md-12">
+                <fieldset>
+                <a href="/userchangepassword/" class="mr-0"><button>change password</button></a>
+              </fieldset>
+              </div>
+            </div>
+          </form>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+{% endblock %}

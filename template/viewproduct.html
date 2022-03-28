@@ -1,0 +1,53 @@
+
+
+{% extends 'headerfooter.html' %}
+
+{% block content %}
+
+
+<!-- ***** Main Banner Area Start ***** -->
+<section class="section main-banner" id="top" data-section="section1">
+  <video autoplay muted loop id="bg-video">
+      <source src="/static/assets/images/course-video.mp4" type="video/mp4" />
+  </video>
+
+  <div class="video-overlay header-text">
+        <div class="caption">
+            <h3 style="color: yellow;">VIEW  </h3><h3  style="color: white;">PRODUCT</h3>
+          </div>
+      </div>
+  </div>
+</section>
+<!-- ***** Main Banner Area End ***** -->
+<section class="section coming-soon" data-section="section3">
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 col-xs-12">
+      <div class="continer centerIt">
+            <div class="top-content">
+              <h6>Your <em>Products </em>Are Listed Below</h6>
+            </div>
+            <table class=" table" width="200px">
+              <div class="col-md-12">
+                <fieldset>
+              <tr class="table-danger"><th>Product Name</th><th>Product Price</th><th>Product description</th><th>Product Image</th><th>Brand</th><th>Condition</th></tr>
+        
+            </div>
+             {% for x in pro %}
+             <div class="col-md-12">
+               <fieldset> 
+               <tr class="table-info"><td>{{x.productname}}</td><td>{{x.productprice}}</td><th>{{x.productdes}}</th><td><img src="{{x.pimage.url}}" alt="image" width="90px" ></td><td>{{x.brand}}</td><td>{{x.condition}}</td><td><a href="/updateproduct/?pro={{x.id}}"> Update</a></td><td><a href="/deleteproduct/?pro={{x.id}}">Delete</a></td></tr>
+             
+              </fieldset> </div> {% endfor %}
+              </table>
+
+          </div>
+        </div>
+      </div>
+      </div>
+    </div>
+</section>     
+
+  {% endblock %}
+
+  table table-bordered table-hover table-warning

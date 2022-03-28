@@ -1,0 +1,75 @@
+{% extends 'headerfooter.html' %}
+
+{% block content %}
+
+<link href="/static/assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/assets/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/static/assets/css/prettyPhoto.css" rel="stylesheet">
+    <link href="/static/assets/css/price-range.css" rel="stylesheet">
+    <link href="/static/assets/css/animate.css" rel="stylesheet">
+	<link href="/static/assets/css/main.css" rel="stylesheet">
+	<link href="/static/assets/css/responsive.css" rel="stylesheet">
+  <link rel="shortcut icon" href="/static/assets/images/ico/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/static/assets/images/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/static/assets/images/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/static/assets/images/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="/static/assets/images/ico/apple-touch-icon-57-precomposed.png">
+    <script src="/static/assets/js/jquery.js"></script>
+    <script src="/static/assets/js/price-range.js"></script>
+      <script src="/static/assets/js/jquery.scrollUp.min.js"></script>
+    <script src="/static/assets/js/bootstrap.min.js"></script>
+      <script src="/static/assets/js/jquery.prettyPhoto.js"></script>
+      <script src="/static/assets/js/main.js"></script>
+<body>
+	
+	<section id="advertisement">
+		<div class="container">
+      <img src="/static/assets/images/shop/advertisement.jpg" alt="" />
+			
+		</div>
+	</section>
+	<section>
+
+		<div class="row">
+			
+							
+							
+					
+				
+				<div class="col-sm-12 padding-right">
+					<div class="features_items"><!--features_items-->
+						<h2 class="title text-center">Features Items</h2>
+						{% for x in pro %}
+						<div class="col-sm-3 padding-left">
+							<div class="product-image-wrapper">
+								<div class="single-products">
+									<div class="productinfo text-center">
+										<img src="{{x.pimage.url}}" alt="" />
+										<h2>Rs.{{x.productprice}}</h2>
+										<p>{{x.productname}}</p>
+										<a href="/userbooking/?pro={{x.id}}" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>BOOK</a>
+									</div>
+									<div class="product-overlay">
+										<div class="overlay-content">
+											<h2>Rs.{{x.productprice}}</h2>
+											<p>{{x.productname}}</p>
+											<a href="/userbooking/?pro={{x.id}}" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>BOOK</a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						
+						{% endfor %}
+						 
+					</div><!--features_items--> 	
+				</div>
+			</div>
+		</div>
+	</section>
+
+
+  
+   
+</body>
+{% endblock %}
