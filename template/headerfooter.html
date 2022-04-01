@@ -48,7 +48,43 @@ function pop()
       
         $.ajax({
       
-              url:'/sellerregistration/',
+              url:'/sellercheck/',
+              data:
+              {
+                'p':username,
+                'q':email
+              },
+              datatype: 'json',
+              success: function(jj)
+              { if(jj.vv=="t")
+                document.getElementById('res').style.display="block";
+                else
+                document.getElementById('res').style.display="none";
+                if(jj.ww=="t")
+                document.getElementById('ser').style.display="block";
+                else
+                document.getElementById('ser').style.display="none";
+                if(jj.ww!="t" & jj.vv!="t")
+                // document.getElementById().removeAttr()
+                document.getElementById('submit').removeAttribute('disabled');
+               
+              
+              }
+           
+      
+      
+      
+            });
+      }				
+      function gg()
+      {
+        alert("cheking if available or not!");
+        var username=document.getElementById('username').value;
+        var email=document.getElementById('email').value;
+      
+        $.ajax({
+      
+              url:'/usercheck/',
               data:
               {
                 'p':username,

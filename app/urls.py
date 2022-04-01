@@ -41,6 +41,9 @@ path('sellerchangepassword2/',views.sellerchangepassword2),
 path('userverification/',views.userverification),
 path('sellerverification/',views.sellerverification),
 path('contact/',views.contact),
+path('usercheck/',views.usercheck),
+path('sellercheck/',views.sellercheck),
+path('searchproduct/',views.searchproduct),
 
 
 ]

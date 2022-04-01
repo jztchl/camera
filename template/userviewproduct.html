@@ -24,20 +24,24 @@
 	
 	<section id="advertisement">
 		<div class="container">
-      <img src="/static/assets/images/shop/advertisement.jpg" alt="" />
-			
+      <img src="/static/assets/images/shop/advertisement.jpg" alt="" />	
+		</div>
+		<div class="container mt-5 mb-1 ml-250" style="align-items:center; display:flexbox; justify-content:center;">
+		<form action="/searchproduct/" method="GET">
+			<div class="col-md-5 ml-0 mx-auto" >
+				<div class="input-group">
+					<input class="form-control border-end-0 border rounded-pill" type="search" value="" name="s" id="search" placeholder="search here">
+				</div>
+			</div>
+		</form>
 		</div>
 	</section>
 	<section>
 
-		<div class="row">
-			
-							
-							
-					
-				
+		<div class="row">							
 				<div class="col-sm-12 padding-right">
 					<div class="features_items"><!--features_items-->
+						{%if pro%}
 						<h2 class="title text-center">Features Items</h2>
 						{% for x in pro %}
 						<div class="col-sm-3 padding-left">
@@ -61,7 +65,10 @@
 						</div>
 						
 						{% endfor %}
-						 
+						 {%else%}
+						 <div class="container"style="color:red; align-items:center; display:flexbox; justify-content:center; font: size 20px;">
+						 <pre > 					no items available</pre></div>
+						 {% endif%}
 					</div><!--features_items--> 	
 				</div>
 			</div>

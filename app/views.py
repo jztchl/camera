@@ -32,8 +32,7 @@ def crypdec(word):
 def index(request):
     return render(request, 'index.html')
 
-
-def userregistration(request):
+def usercheck(request):
     use = request.GET.get('p')
     ema = request.GET.get('q')
     b = user.objects.filter(username=use).exists()
@@ -51,6 +50,8 @@ def userregistration(request):
         fj = "t"
         ll = {"ww": fj}
         return JsonResponse(ll)
+
+def userregistration(request):
     if request.method == 'POST':
         name = request.POST['name']
         email = request.POST['email']
@@ -79,8 +80,7 @@ def userverification(request):
     user.objects.filter(username=use).update(authN='Approved')
     return HttpResponseRedirect("/userlogin/")
 
-
-def sellerregistration(request):
+def sellercheck(request):
     use = request.GET.get('p')
     ema = request.GET.get('q')
     b = seller.objects.filter(username=use).exists()
@@ -98,6 +98,8 @@ def sellerregistration(request):
         fj = "t"
         ll = {"ww": fj}
         return JsonResponse(ll)
+
+def sellerregistration(request):
     if request.method == 'POST':
         name = request.POST['name']
         email = request.POST['email']
@@ -371,8 +373,11 @@ def userviewproduct(request):
    else:
        return render(request, 'index.html',{'success':'please login'})
 
-
-
+def searchproduct(request):
+    s=request.GET['s']
+    p=product.objects.filter(productname__icontains=s)
+    return render(request, 'userviewproduct.html', {"pro": p})
+    
 def userbooking(request):
     if request.session.has_key('use'):
       if request.method == 'POST':
