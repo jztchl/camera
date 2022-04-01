@@ -188,25 +188,6 @@ def userlogout(request):
 
 
 def sellerprofile(request):
-    sel = request.session['sel']
-    ss = seller.objects.filter(id=sel)
-    use = request.GET.get('p')
-    ema = request.GET.get('q')
-    b = seller.objects.filter(username=use).exists()
-    c = seller.objects.filter(email=ema).exists()
-    if b & c:
-        ej = "t"
-        fj = "t"
-        jj = {"vv": ej, "ww": fj}
-        return JsonResponse(jj)
-    if b:
-        ej = "t"
-        jj = {"vv": ej}
-        return JsonResponse(jj)
-    if c:
-        fj = "t"
-        ll = {"ww": fj}
-        return JsonResponse(ll)
     if request.method == 'POST':
         name = request.POST['name']
         email = request.POST['email']
@@ -234,25 +215,6 @@ def sellerprofile(request):
 
 
 def userprofile(request):
-    use = request.session['use']
-    ss = user.objects.filter(id=use)
-    userr = request.GET.get('p')
-    ema = request.GET.get('q')
-    b = user.objects.filter(username=userr).exists()
-    c = user.objects.filter(email=ema).exists()
-    if b & c:
-        ej = "t"
-        fj = "t"
-        jj = {"vv": ej, "ww": fj}
-        return JsonResponse(jj)
-    if b:
-        ej = "t"
-        jj = {"vv": ej}
-        return JsonResponse(jj)
-    if c:
-        fj = "t"
-        ll = {"ww": fj}
-        return JsonResponse(ll)
     if request.method == 'POST':
         name = request.POST['name']
         email = request.POST['email']
