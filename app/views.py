@@ -211,7 +211,7 @@ def sellerprofile(request):
                 vname=name, email=email, phone=phone, username=username)
             return HttpResponseRedirect('/sellerprofile/', {"sel": ss})
     else:
-	sel = request.session['sel']
+	sel =request.session['sel']
 	ss = seller.objects.filter(id=sel)
         return render(request, 'sellerprofile.html', {"sel": ss})
 
