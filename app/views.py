@@ -188,8 +188,8 @@ def userlogout(request):
 
 
 def sellerprofile(request):
+    sel =request.session['sel']
     if request.method == 'POST':
-        sel =request.session['sel']
         name = request.POST['name']
         email = request.POST['email']
         phone = request.POST['phone-number']
@@ -212,14 +212,13 @@ def sellerprofile(request):
                 vname=name, email=email, phone=phone, username=username)
             return HttpResponseRedirect('/sellerprofile/')
     else:
-	sel =request.session['sel']
 	ss = seller.objects.filter(id=sel)
         return render(request,'sellerprofile.html',{"sel": ss})
 
 
 def userprofile(request):
+    use = request.session['use']
     if request.method == 'POST':
-	use = request.session['use']
         name = request.POST['name']
         email = request.POST['email']
         phone = request.POST['phone-number']
@@ -242,7 +241,6 @@ def userprofile(request):
             name=name, email=email, phone=phone, username=username)
         return HttpResponseRedirect('/userprofile/')
     else:
-	use = request.session['use']
 	ss = user.objects.filter(id=use)
         return render(request, 'userprofile.html', {"use": ss})
 
