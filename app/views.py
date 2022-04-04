@@ -189,6 +189,7 @@ def userlogout(request):
 
 def sellerprofile(request):
     if request.method == 'POST':
+	sel = request.session['sel']
         name = request.POST['name']
         email = request.POST['email']
         phone = request.POST['phone-number']
@@ -209,15 +210,16 @@ def sellerprofile(request):
                     updrec.save()
             seller.objects.filter(id=sel).update(
                 vname=name, email=email, phone=phone, username=username)
-            return HttpResponseRedirect('/sellerprofile/', {"sel": ss})
+            return HttpResponseRedirect('/sellerprofile/')
     else:
 	sel =request.session['sel']
 	ss = seller.objects.filter(id=sel)
-        return render(request, 'sellerprofile.html', {"sel": ss})
+        return render(request,'sellerprofile.html',{"sel": ss})
 
 
 def userprofile(request):
     if request.method == 'POST':
+	use = request.session['use']
         name = request.POST['name']
         email = request.POST['email']
         phone = request.POST['phone-number']
