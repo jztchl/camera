@@ -37,19 +37,12 @@ def usercheck(request):
     ema = request.GET.get('q')
     b = user.objects.filter(username=use).exists()
     c = user.objects.filter(email=ema).exists()
-    if b & c:
-        ej = "t"
-        fj = "t"
-        jj = {"vv": ej, "ww": fj}
-        return JsonResponse(jj)
-    if b:
-        ej = "t"
-        jj = {"vv": ej}
-        return JsonResponse(jj)
-    if c:
-        fj = "t"
-        ll = {"ww": fj}
-        return JsonResponse(ll)
+    if b:ej = "t"
+    else:ej = "f"  
+    if c:fj = "t"
+    else:fj = "f"  
+    jj = {"vv": ej, "ww": fj}
+    return JsonResponse(jj)
 
 def userregistration(request):
     if request.method == 'POST':
@@ -85,19 +78,12 @@ def sellercheck(request):
     ema = request.GET.get('q')
     b = seller.objects.filter(username=use).exists()
     c = seller.objects.filter(email=ema).exists()
-    if b & c:
-        ej = "t"
-        fj = "t"
-        jj = {"vv": ej, "ww": fj}
-        return JsonResponse(jj)
-    if b:
-        ej = "t"
-        jj = {"vv": ej}
-        return JsonResponse(jj)
-    if c:
-        fj = "t"
-        ll = {"ww": fj}
-        return JsonResponse(ll)
+    if b:ej = "t"
+    else:ej = "f"  
+    if c:fj = "t"
+    else:fj = "f"
+    jj = {"vv": ej, "ww": fj}
+    return JsonResponse(jj)
 
 def sellerregistration(request):
     if request.method == 'POST':
@@ -212,7 +198,7 @@ def sellerprofile(request):
                 vname=name, email=email, phone=phone, username=username)
             return HttpResponseRedirect('/sellerprofile/')
     else:
-	ss =seller.objects.filter(id=sel)
+        ss=seller.objects.filter(id=sel)
         return render(request,'sellerprofile.html',{"sel": ss})
 
 
@@ -241,7 +227,7 @@ def userprofile(request):
             name=name, email=email, phone=phone, username=username)
         return HttpResponseRedirect('/userprofile/')
     else:
-	ss = user.objects.filter(id=use)
+        ss = user.objects.filter(id=use)
         return render(request, 'userprofile.html', {"use": ss})
 
 
