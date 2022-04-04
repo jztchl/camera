@@ -66,7 +66,7 @@ def userregistration(request):
         b.save()
         word=crypenc(username)
         subject = 'Email Verification'
-        message = f'Hi {name}, please click here to verify your email link: http://127.0.0.1:8000/userverification/?uid={word} '
+        message = f'Hi {name}, please click here to verify your email link: http://100.25.1.169/userverification/?uid={word} '
         email_from = settings.EMAIL_HOST_USER 
         recipient_list = [email, ] 
         send_mail( subject, message, email_from, recipient_list ) 
@@ -114,7 +114,7 @@ def sellerregistration(request):
         b.save()
         word=crypenc(username)
         subject = 'Email Verification'
-        message = f'Hi {name}, please click here to verify your email link:http://127.0.0.1:8000/sellerverification/?sid={word} '
+        message = f'Hi {name}, please click here to verify your email link:http://100.25.1.169/sellerverification/?sid={word} '
         email_from = settings.EMAIL_HOST_USER 
         recipient_list = [email, ] 
         send_mail( subject, message, email_from, recipient_list ) 
@@ -526,7 +526,7 @@ def userforgotpassword(request):
             for x in ab:
                 if x.email==email:
                      subject = 'Password Reset'
-                     message = f'Hi {x.name},password resetlink for your  {x.username} link: http://vishnukm.pythonanywhere.com/userchangepassword2/?uid={x.id} '
+                     message = f'Hi {x.name},password resetlink for your  {x.username} link: http://100.25.1.169/userchangepassword2/?uid={x.id} '
                      email_from = settings.EMAIL_HOST_USER 
                      recipient_list = [email, ] 
                      send_mail( subject, message, email_from, recipient_list ) 
@@ -598,7 +598,7 @@ def sellerforgotpassword(request):
             for x in ab:
                 if x.email==email:
                      subject = 'Password Reset'
-                     message = f'Hi {x.vname},password resetlink for your  {x.username} link: http://vishnukm.pythonanywhere.com/sellerchangepassword2/?uid={x.id} '
+                     message = f'Hi {x.vname},password resetlink for your  {x.username} link: http://100.25.1.169/sellerchangepassword2/?uid={x.id} '
                      email_from = settings.EMAIL_HOST_USER 
                      recipient_list = [email, ] 
                      send_mail( subject, message, email_from, recipient_list ) 
@@ -631,7 +631,7 @@ def contact(request):
       message3='                '
       message=message2+message3+message1
       email_from = settings.EMAIL_HOST_USER 
-      recipient_list = ["vasujj00@gmail.com", ] 
+      recipient_list = ["camerarentalservices@gmail.com", ] 
       send_mail( subject, message, email_from, recipient_list ) 
       return render(request,'index.html')
     else:
