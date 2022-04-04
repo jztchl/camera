@@ -211,6 +211,8 @@ def sellerprofile(request):
                 vname=name, email=email, phone=phone, username=username)
             return HttpResponseRedirect('/sellerprofile/', {"sel": ss})
     else:
+	sel = request.session['sel']
+	ss = seller.objects.filter(id=sel)
         return render(request, 'sellerprofile.html', {"sel": ss})
 
 
@@ -236,8 +238,10 @@ def userprofile(request):
                     updrec.save()
         user.objects.filter(id=use).update(
             name=name, email=email, phone=phone, username=username)
-        return render(request, 'userprofile.html', {"use": ss})
+        return HttpResponseRedirect('/userprofile/')
     else:
+	use = request.session['use']
+	ss = user.objects.filter(id=use)
         return render(request, 'userprofile.html', {"use": ss})
 
 
