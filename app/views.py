@@ -189,7 +189,7 @@ def userlogout(request):
 
 def sellerprofile(request):
     if request.method == 'POST':
-	sel = request.session['sel']
+        sel =request.session['sel']
         name = request.POST['name']
         email = request.POST['email']
         phone = request.POST['phone-number']
