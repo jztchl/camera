@@ -79,9 +79,9 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME':'camera',
         'USER':'root',
-        'PASSWORD':'',
+        'PASSWORD':'welcometodharmadam99',
         'HOST':'localhost',
-        'PORT':'3306'
+     
     }
 }
 
