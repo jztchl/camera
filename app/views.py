@@ -127,7 +127,7 @@ def userlogin(request):
             aut  = x.authN
             if username == name and password == pswd:
                 if aut == 'pending':
-                    return render(request, 'sellerlogin.html', {'errr': 'Please Verify your Email'})
+                    return render(request, 'userlogin.html', {'errr': 'Please Verify your Email'})
                 else:
                  request.session['use'] = x.id
                  return render(request, 'index.html', {'success': 'successfully logged in'})
@@ -192,8 +192,8 @@ def sellerprofile(request):
                 if os.path.exists(pathtoimage):
                     os.remove(pathtoimage)
                     print('Successfully deleted')
-                    updrec.image = image1
-                    updrec.save()
+                updrec.image = image1
+                updrec.save()
             seller.objects.filter(id=sel).update(
                 vname=name, email=email, phone=phone, username=username)
             return HttpResponseRedirect('/sellerprofile/')
@@ -221,8 +221,8 @@ def userprofile(request):
                 if os.path.exists(pathtoimage):
                     os.remove(pathtoimage)
                     print('Successfully deleted')
-                    updrec.image = image1
-                    updrec.save()
+                updrec.image = image1
+                updrec.save()
         user.objects.filter(id=use).update(
             name=name, email=email, phone=phone, username=username)
         return HttpResponseRedirect('/userprofile/')
@@ -302,8 +302,8 @@ def updateproduct(request):
                 if os.path.exists(pathtoimage):
                     os.remove(pathtoimage)
                     print('Successfully deleted')
-                    updrec.pimage = image1
-                    updrec.save()
+                updrec.pimage = image1
+                updrec.save()
         product.objects.filter(id=pro).update(
             productname=productname, productprice=productprice, productdes=productdes, brand=brand, condition=condition)
         pro = product.objects.filter(id=pro)
