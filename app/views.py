@@ -13,6 +13,9 @@ from django.conf import settings
 from django.core.mail import send_mail,EmailMultiAlternatives
 import hashlib
 from cryptography.fernet import Fernet
+from django.core.paginator import Paginator
+
+
 
 def  crypenc(word):
     key='8kFlNXBwK5iMiviWIjG9A13g3h6xhoSqU2mWcddkQSY='
@@ -321,6 +324,9 @@ def updateproduct(request):
 def userviewproduct(request):
    if request.session.has_key('use'):
      p=product.objects.all()
+     paginator= Paginator(p, 1) 
+     page = request.GET.get('page')
+     p = paginator.get_page(page)
      return render(request, 'userviewproduct.html', {"pro": p})
    else:
        return render(request, 'index.html',{'success':'please login'})
@@ -328,7 +334,11 @@ def userviewproduct(request):
 def searchproduct(request):
     s=request.GET['s']
     p=product.objects.filter(productname__icontains=s)
-    return render(request, 'userviewproduct.html', {"pro": p})
+    paginator= Paginator(p, 1) 
+    page = request.GET.get('page')
+    p = paginator.get_page(page)
+    return render(request, 'searchviewproducts.html', {"pro": p})
+    
     
 def userbooking(request):
     if request.session.has_key('use'):
