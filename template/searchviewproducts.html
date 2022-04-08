@@ -101,8 +101,8 @@
 						<div class="pagination navbar">
 							<span class="step-links">
 								{% if pro.has_previous %}
-									<a href="?page=1">&laquo; first</a>
-									<a href="/searchproduct/?page={{ pro.previous_page_number }}">previous</a>
+									<a href="?page=1&s={{search}}">&laquo; first</a>
+									<a href="/searchproduct/?page={{ pro.previous_page_number }}&s={{search}}">previous</a>
 								{% endif %}
 						
 								<span class="current">
@@ -110,8 +110,8 @@
 								</span>
 						
 								{% if pro.has_next %}
-									<a href="/searchproduct/?page={{ pro.next_page_number }}">next</a>
-									<a href="/searchproduct/?page={{ pro.paginator.num_pages }}">last &raquo;</a>
+									<a href="/searchproduct/?page={{ pro.next_page_number }}&s={{search}}">next</a>
+									<a href="/searchproduct/?page={{ pro.paginator.num_pages }}&s={{search}}">last &raquo;</a>
 								{% endif %}
 							</span>
 						</div>

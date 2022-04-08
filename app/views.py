@@ -337,7 +337,7 @@ def searchproduct(request):
     paginator= Paginator(p, 1) 
     page = request.GET.get('page')
     p = paginator.get_page(page)
-    return render(request, 'searchviewproducts.html', {"pro": p})
+    return render(request, 'searchviewproducts.html', {"pro": p,"search":s})
     
     
 def userbooking(request):
