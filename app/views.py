@@ -324,7 +324,7 @@ def updateproduct(request):
 def userviewproduct(request):
    if request.session.has_key('use'):
      p=product.objects.all()
-     paginator= Paginator(p, 1) 
+     paginator= Paginator(p, 12) 
      page = request.GET.get('page')
      p = paginator.get_page(page)
      return render(request, 'userviewproduct.html', {"pro": p})
@@ -334,7 +334,7 @@ def userviewproduct(request):
 def searchproduct(request):
     s=request.GET['s']
     p=product.objects.filter(productname__icontains=s)
-    paginator= Paginator(p, 1) 
+    paginator= Paginator(p, 12) 
     page = request.GET.get('page')
     p = paginator.get_page(page)
     return render(request, 'searchviewproducts.html', {"pro": p,"search":s})
