@@ -42,7 +42,11 @@
             <td>{{x.email}}</td>
             <td>{{x.phone}}</td>
             <td>{{x.authN}}</td>
+            {% if x.image %}
             <td><img src="{{x.image.url}}" alt="" width="10%" srcset=""></td>
+            {% else %}
+            <td>no image</td>
+            {% endif %}
        <td><a href="/seller_approve/?sid={{x.id}}"><span style="color:green">Approve</span></a><br><a href="/seller_delete/?sid={{x.id}}" ><span style="color: red;"> Delete</span></a></td>
           </tr>
           {% endfor %}

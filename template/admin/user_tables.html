@@ -39,8 +39,11 @@
             <td>{{x.username}}</td>
             <td>{{x.email}}</td>
             <td>{{x.phone}}</td>
-            
+            {% if x.image %}
             <td><img src="{{x.image.url}}" alt="" width="10%" srcset=""></td>
+            {% else %}
+            <td>no image</td>
+            {% endif %}
           </tr>
           {% endfor %}
         </tbody>
