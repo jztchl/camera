@@ -20,7 +20,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-tg-i#*&_k_75_zeg2%3&ryw0-%&kko!zz=u4p#_2h_#ju$x+bx'
+SECRET_KEY = ''
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -79,7 +79,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME':'camera',
         'USER':'root',
-        'PASSWORD':'welcometodharmadam99',
+        'PASSWORD':'',
         'HOST':'localhost',
         'PORT':'3306',
      
@@ -138,6 +138,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'camerarentalservices@gmail.com' 
-EMAIL_HOST_PASSWORD = 'orginals678#'
+EMAIL_HOST_USER = '' 
+EMAIL_HOST_PASSWORD = ''
 EMAIL_PORT = 587
