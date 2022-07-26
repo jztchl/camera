@@ -9,4 +9,3 @@
   <p align="center">
    This is a  website deigned to rent or be renter and give your camera for rent for certain amount you choose
 </div>
-<a href="https://strangeroverblogs.herokuapp.com/"  target=”_blank”>click here to check out the blog</a>
