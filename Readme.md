@@ -1,7 +1,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/kmvishnu625/camera">
-    <img src="/static/assets/img/favicon.ico" alt="Logo" width="80" height="80">
+    <img src="/static/assets/images/camera.png" alt="Logo" width="80" height="80">
   </a>
 
 <h1 align="center">Camera Rental</h1>
