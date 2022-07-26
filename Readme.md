@@ -7,5 +7,5 @@
 <h1 align="center">Camera Rental</h1>
 
   <p align="center">
-   This is a  website deigned to rent or be renter and give your camera for rent for certain amount you choose
+   This is a  website deigned to rent or be a renter and give your camera for rent for certain amount you choose
 </div>
