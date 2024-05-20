@@ -10,7 +10,7 @@
    This is a  website deigned to rent or be a renter and give your camera for rent for certain amount you choose
 </div>
 
-```markdown
+
 <p align="center">
   <img src="/static/assets/images/camera.png" alt="Camera Rental Logo" width="200">
 </p>
@@ -20,6 +20,8 @@
 <p align="center">
   Welcome to Camera Rental, your platform for renting and offering cameras for rent!
 </p>
+```markdown
+
 
 ## About
 
