@@ -9,7 +9,6 @@
   <p align="center">
    This is a  website deigned to rent or be a renter and give your camera for rent for certain amount you choose
 </div>
-Absolutely! Let's add some creative flair to the README for your Camera Rental project:
 
 ```markdown
 <p align="center">
